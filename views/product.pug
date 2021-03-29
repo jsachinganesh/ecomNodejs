@@ -1,0 +1,132 @@
+extends base
+
+block content 
+    .container(style='margin-top: 7rem;')
+        .row
+            .col-12.col-lg-6.text-center
+                img.img-fluid(src=`./images/products/${product.image}.jpg` alt='macbook')(style='width: 20rem;')
+            .col-12.col-lg-6
+                h3.text-uppercase.text-body(style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;")= product.name
+                    
+                .fs-6= product.brand
+                .row.border-bottom.pb-2
+                    .col-6 &#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;
+                    - const ratings = `${product.ratings} ratings`
+                    .col-6.text-capitalize= ratings
+                .fs-3
+                    | Price: 
+                    small.fw-bold= product.price
+                small Inclusive of all taxes
+                div
+                    button.btn.bg-primary.text-white.d-inline-block.m-1#productBuy Buy Now
+                    button.btn.bg-primary.text-white.d-inline-block#productAddToCart Add to Cart
+    .container 
+        .row
+            .col-12.col-lg-6.ms-lg-5
+                table.table.table-striped
+                    thead
+                        tr
+                            th(scope='col') #
+                            th(scope='col') Technical Details
+                            th(scope='col')
+                            // <th scope="col">Capital</th>
+                    tbody
+                        tr
+                            th(scope='row') 1
+                            td Manufacturer
+                            - const manufacturer = `${product.manufacturer} 1800 315 9999 / 1800 180 9999`
+                            td= manufacturer
+                        tr
+                            th(scope='row') 2
+                            td Model Name
+                            td= product.modelName
+                        tr
+                            th(scope='row') 3
+                            td RAM Size
+                            td= product.ramSize
+                        tr
+                            th(scope='row') 4
+                            td Memory Storage Capacity
+                            td= product.memoryStorageCapacity
+                        tr
+                            th(scope='row') 5
+                            td Resolution
+                            td= product.resolution
+                        tr
+                            th(scope='row') 6
+                            td Graphics Card
+                            td= product.graphicsCard
+            .col-12.col-lg-5
+                .display-6.mb-4.border-bottom.pb-1 Summary
+                p
+                | This is the best laptop I&apos;ve owned so far. It has amazing battery backup.. I get up to 11 hours most days, very light weight and has superb performance. I sometimes open 40-50 chrome tabs and it doesn&apos;t crash or lag.
+                | I am not a gamer so I don&apos;t know about gaming. The screen is just perfect for watching movies. Keyboard is nice to touch and has backlight for night usage. Finger print unlock. Volume is decent for a small room. I haven&apos;t used it outdoors yet.
+    .container
+        h3.display-4 Reviews
+        .row
+            .d-flex.justify-content-center.justify-content-md-around.justify-content-lg-between.flex-wrap.col-12.col-lg-6
+                
+                for review in product.reviews
+                    .card.mt-2(style='width: 250px;')
+                        h5.card-header #{review.name}
+                        p.card-body
+                            | #{review.comment} 
+            .col-12.col-lg-5.align-middle.mt-2.mt-lg-0
+                //- .display-5 Write a Review
+                //- h5.text-muted.m-1 #{user.name}
+                //- form.mb-3#reviewBox
+                //-     label.form-label(for='rating') Rating
+                //-     input.form-control#ratingReviewForm(type="number")
+                //-     label.form-label(for='review') Review
+                //-     textarea#reviewBoxReviewForm.form-control(type='text' aria-describedby='review')
+                //-     #productIdReview.d-none #{product._id}
+                //-     button.btn.bg-primary.text-white.mt-1(type='submit') Submit
+                if user 
+                    .display-5 Write a Review
+                    h5.text-muted.m-1 #{user.name}
+                    form.mb-3#reviewBox
+                        label.form-label(for='rating') Rating
+                        input.form-control#ratingReviewForm(type="number")
+                        label.form-label(for='review') Review
+                        textarea#reviewBoxReviewForm.form-control(type='text' aria-describedby='review')
+                        #productIdReview.d-none #{product._id}
+                        button.btn.bg-primary.text-white.mt-1(type='submit') Submit
+                else 
+                    .display-5 Login to Write Review
+    .alert.alert-primary.position-fixed.bottom-0.end-0#alertProductAddCard.d-none(role='alert')
+        | Product added to Cart
+    script(src='./js/productPage.js')
+    
+
+
+//- .container
+//-         h3.display-4 Reviews
+//-         .row
+//-             .d-flex.justify-content-center.justify-content-md-around.justify-content-lg-between.flex-wrap.col-12.col-lg-6
+//-                 .card.mt-2(style='width: 250px;')
+//-                     h5.card-header John Cena
+//-                     p.card-body
+//-                         | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi error corrupti, facilis placeat obcaecati praesentium quaerat similique ut unde ullam.
+//-                 .card.mt-2(style='width: 250px;')
+//-                     h5.card-header John Cena
+//-                     p.card-body
+//-                         | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi error corrupti, facilis placeat obcaecati praesentium quaerat similique ut unde ullam.
+//-                 .card.mt-2(style='width: 250px;')
+//-                     h5.card-header John Cena
+//-                     p.card-body
+//-                         | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi error corrupti, facilis placeat obcaecati praesentium quaerat similique ut unde ullam.
+//-                 .card.mt-2(style='width: 250px;')
+//-                     h5.card-header John Cena
+//-                     p.card-body
+//-                         | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi error corrupti, facilis placeat obcaecati praesentium quaerat similique ut unde ullam.
+//-                 .card.mt-2(style='width: 250px;')
+//-                     h5.card-header John Cena
+//-                     p.card-body
+//-                         | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi error corrupti, facilis placeat obcaecati praesentium quaerat similique ut unde ullam.
+//-             .col-12.col-lg-5.align-middle.mt-2.mt-lg-0
+//-                 .display-5 Write a Review
+//-                 h5.text-muted.m-1 Son Goku
+//-                 form.mb-3
+//-                     label.form-label(for='review') Review
+//-                     textarea#review.form-control(type='text' aria-describedby='review')
+//-                     button.btn.bg-primary.text-white.mt-1(type='submit') Submit

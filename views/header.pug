@@ -1,0 +1,49 @@
+.container-fluid.bg-light
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light.container.fixed-top
+        a.narbar-brand.text-decoration-none.link-dark.display-5.text-uppercase.fw-bold.me-5.mb-sm-2(href='/') Ecom
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbar')
+            span.navbar-toggler-icon
+        #navbar.collapse.navbar-collapse.ms-4
+            form.d-flex.w-100.me-4.mt-4.mt-md-0
+                .position-relative.w-100.me-2
+                    input.searchInputProduct.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
+                    ul.productSearchResults.list-group.position-absolute.top-100.w-100.mt-1.d-none
+                        li.list-group-item#productSearchResultsli
+                            a.text-decoration-none(href="#") first checkBook 
+                        li.list-group-item#productSearchResultsli
+                            | two checkbox
+                        li.list-group-item#productSearchResultsli
+                            | First checkbox
+                        li.list-group-item#productSearchResultsli
+                            | two checkbox
+                        li.list-group-item#productSearchResultsli
+                            | First checkbox
+                        li.list-group-item#productSearchResultsli
+                            | two checkbox
+
+                button.btn.btn-outline-success(type='submit') Search
+            ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+                li.nav-item
+                    a.nav-link.active(aria-current='page' href='/') Home
+                li.nav-item
+                    a.nav-link(aria-current='page' href='/products') Products
+                
+                if user && user.role === 'admin'
+                    li.nav-item
+                        a.nav-link.text-nowrap(href='/additem') Add Item
+                li.nav-item
+                    a.nav-link(href='/cart') Cart
+                if user 
+                    li.nav-item.dropdown
+                        a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                            | #{user.name}
+                        ul.dropdown-menu(aria-labelledby='navbarDropdown')
+                            li
+                                a.dropdown-item(href='/aboutme') Me
+                            li
+                                hr.dropdown-divider
+                            li
+                                button#logoutBtn.dropdown-item LogOut
+                else 
+                    li.nav-item
+                    a.nav-link(href='/login') Login

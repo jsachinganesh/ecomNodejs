@@ -1,0 +1,25 @@
+extends base
+
+block content
+    .container.d-flex.flex-column.align-items-center(style='margin-top: 7rem; height: 100vh;')
+        h1.display-5 ADD ITEM
+        form#addItemForm.addItem.d-flex.flex-column.justify-content-center
+            input#addItemName.form-control.mb-2(type='text' placeholder='Name' required='')
+            input#addItemBrand.form-control.mb-2(type='text' placeholder='Brand' required='')
+            input#addItemPrice.form-control.mb-2(type='number' placeholder='Price' required='')
+            input#addItemRating.form-control.mb-2(type='text' placeholder='Rating' required='')
+            input#addItemManufacturer.form-control.mb-2(type='text' placeholder='Manufacturer' required='')
+            input#addItemModelName.form-control.mb-2(type='text' placeholder='ModelName' required='')
+            input#addItemRamSize.form-control.mb-2(type='number' placeholder='Ram Size' required='')
+            input#addItemMemoryStorageCapacity.form-control.mb-2(type='text' placeholder='Memory Storage Capacity' required='')
+            input#addItemResolution.form-control.mb-2(type='text' placeholder='Resolution' required='')
+            input#addItemGraphicsCard.form-control.mb-2(type='text' placeholder='Graphics Card' required='')
+            select#addItemType.form-select(required='')
+                option(value='laptop') Laptop
+                option(value='phone') Phone
+            .input-group.mt-3
+                input#inputGroupFile02.form-control(type='file')
+                label.input-group-text(for='inputGroupFile02') Upload
+            button#addItemBtn.btn.bg-primary.text-white.mt-3(type='submit') Add Item
+    
+    script(src='./js/addItem.js') 

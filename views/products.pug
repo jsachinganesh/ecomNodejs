@@ -1,0 +1,22 @@
+extends base
+
+block content 
+    .container(style='margin-top: 7rem;')
+        h1.display-1.text-capitalize #{title}s
+        .d-flex.justify-content-center.justify-content-md-between.justify-content-lg-between.flex-wrap
+            for product in products 
+                .card.m-4.d-flex(style='width: 300px;')
+                    img.pt-1.align-self-center(src=`./images/products/${product.image}.jpg` alt=product.name style="width:200px; height:200px;")
+                    .card-body
+                        h5.card-title #{product.brand}
+                        p.card-text
+                        | #{product.name}
+                        .idOfTheProduct.d-none #{product._id}
+                        .container.d-flex.justify-content-between.mt-3
+                            a.btn.btn-primary(href=`/${product.slug}`) Price: #{product.price}Rs
+                            button.btn.btn-primary.text-white.addToCard Add to Card
+    .alert.alert-primary.position-fixed.bottom-0.end-0.alertProductAddCard.d-none(role='alert')
+        | Product added to Cart
+    
+    script(src='./js/addToCart.js')
+ 

@@ -1,0 +1,85 @@
+extends base
+
+block content 
+    .container.carousel-section.mb-4(style='margin-top: 5rem;')
+        #carouselExampleIndicators.carousel.slide(carousel-section='' data-bs-ride='carousel')
+            .carousel-indicators
+                button.active(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+                button(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='1' aria-label='Slide 2')
+                button(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='2' aria-label='Slide 3')
+            .carousel-inner
+                .carousel-item.active
+                    img.clickMainPhoto(class=".d-block.w-100" src='images/img1.jpg')
+                .carousel-item
+                    img.clickMainPhoto(class=".d-block.w-100 0" src='images/img3.jpg')
+                .carousel-item
+                    img.clickMainPhoto(class=".d-block.w-100" src='images/img5.jpg')
+            button.carousel-control-prev(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.visually-hidden Previous
+            button.carousel-control-next(type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.visually-hidden Next
+    .container
+        .alert.alert-primary.text-center(role='alert')
+            | Discount if you but above 5000rs &#x1F60D;&#x1F973;
+    .container
+        .row.justify-content-center
+            .card.mb-3.col-12.col-md-12.col-lg-5.overflow-hidden.me-4.selectLaptop
+                img(src='./images/img1.jpg' style='height: 300px; width: 450px;' alt='...')
+                .card-body
+                    h5.card-title Laptops
+                    p.card-text
+                        | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                    p.card-text
+                        small.text-muted Last updated 3 mins ago
+            .card.mb-3.col-12.col-md-12.col-lg-5.overflow-hidden.ms-4.me-4.selectPhone
+                img(src='./images/moblie.jpg' style='height: 300px; width: 450px;' alt='...')
+                .card-body
+                    h5.card-title Phones
+                    p.card-text
+                        | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                    p.card-text
+                        small.text-muted Last updated 3 mins ago
+    .container
+        h3.mb-4 Products
+        .d-flex.justify-content-center.justify-content-md-between.justify-content-lg-between.flex-wrap
+
+            each product in products    
+                .card.m-4.d-flex(style='width: 300px; height:400px;')
+                  
+                    img.pt-1.align-self-center(src=`./images/products/${product.image}.jpg` alt=`${product.name}`)(style="width:200px; height:200px")
+                    .card-body.d-flex.flex-column.justify-content-between
+                        h5.card-title= product.brand
+                        p.card-text(style='text-overflow: ellipsis; overflow: hidden; height:50px')= product.name
+                            
+                            - const price = `Price: ${product.price} Rs`
+                        a.btn.btn-primary(href=`/${product.slug}`)= price
+    .container
+        h3.mb-4 Specails Items
+        .row.justify-content-between
+            .card.mb-3(style='max-width: 540px;')
+                .row.g-0
+                    .col-md-4
+                        img.img-fluid.img-thumbnail.mt-4(src='./images/img5.jpg' style='' alt='...')
+                    .col-md-8
+                        .card-body
+                            h5.card-title Card title
+                            p.card-text
+                                | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                            p.card-text
+                                small.text-muted Last updated 3 mins ago
+            .card.mb-3(style='max-width: 540px;')
+                .row.g-0
+                    .col-md-4
+                        img.img-fluid.img-thumbnail.mt-4(src='./images/img5.jpg' style='' alt='...')
+                    .col-md-8
+                        .card-body
+                            h5.card-title Card title
+                            p.card-text
+                                | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                            p.card-text
+                                small.text-muted Last updated 3 mins ago
+
+                        //-   .container.ps-5.align-self-center
+    script(src='./js/home.js')

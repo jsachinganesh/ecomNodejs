@@ -1,0 +1,62 @@
+extends base
+
+block content 
+    .container.d-flex.flex-column.align-items-center#cartContainer(style='margin-top: 7rem; min-height: 100vh;')
+        h1.display-5.mb-4.text-uppercase.fw-bolder Cart
+        .spinner-border#hide-loading(role='status')
+            span.visually-hidden Loading...
+
+        //- .row.w-100.justify-content-center
+        //-     #cartContainerProductBox.col-12.col-lg-8
+        //-         .d-flex.border.flex-column.flex-lg-row.flex-md-row.mb-2
+        //-             img.img-fluid.rounded(src='./images/products/8.jpg' alt='...' style='height: 100px;')
+        //-             .d-flex.ms-4.flex-fill.flex-column.justify-content-evenly
+        //-                 h3 Laptop Name
+        //-                 div Price: 999
+        //-             button.align-self-end.btn.bg-danger.text-white.m-4 Remove
+            
+        //-         .d-flex.border.flex-column.flex-lg-row.flex-md-row.mb-2
+        //-             img.img-fluid.rounded(src='./images/img1.jpg' alt='...' style='height: 100px;')
+        //-             .d-flex.ms-4.flex-fill.flex-column.justify-content-evenly
+        //-                 h3 Laptop Name
+        //-                 div Price: 999
+        //-             button.align-self-end.btn.bg-danger.text-white.m-4 Remove
+            
+        //-         .d-flex.border.flex-column.flex-lg-row.flex-md-row.mb-2
+        //-             img.img-fluid.rounded(src='./images/img1.jpg' alt='...' style='height: 100px;')
+        //-             .d-flex.ms-4.flex-fill.flex-column.justify-content-evenly
+        //-                 h3 Laptop Name
+        //-                 div Price: 999
+        //-             button.align-self-end.btn.bg-danger.text-white.m-4 Remove
+            
+        //-         .d-flex.border.flex-column.flex-lg-row.flex-md-row.mb-2
+        //-             img.img-fluid.rounded(src='./images/img1.jpg' alt='...' style='height: 100px;')
+        //-             .d-flex.ms-4.flex-fill.flex-column.justify-content-evenly
+        //-                 h3 Laptop Name
+        //-                 div Price: 999
+        //-             button.align-self-end.btn.bg-danger.text-white.m-4 Remove
+            
+        //-         .d-flex.border.flex-column.flex-lg-row.flex-md-row.mb-2
+        //-             img.img-fluid.rounded(src='./images/img1.jpg' alt='...' style='height: 100px;')
+        //-             .d-flex.ms-4.flex-fill.flex-column.justify-content-evenly
+        //-                 h3 Laptop Name
+        //-                 div Price: 999
+        //-             button.align-self-end.btn.bg-danger.text-white.m-4 Remove
+            
+        //-         .d-flex.border.flex-column.flex-lg-row.flex-md-row.mb-2
+        //-             img.img-fluid.rounded(src='./images/img1.jpg' alt='...' style='height: 100px;')
+        //-             .d-flex.ms-4.flex-fill.flex-column.justify-content-evenly
+        //-                 h3 Laptop Name
+        //-                 div Price: 999
+        //-             button.align-self-end.btn.bg-danger.text-white.m-4 Remove
+        //-     #cartAmount.col-12.col-lg-4(style='min-height: 200px;')
+        //-         .d-flex.align-items-baseline.m-2
+        //-             h1 Total Products
+        //-             small.fs-1.ms-3 6
+        //-         .d-flex.align-items-baseline.m-2
+        //-             h1.fs-3 Total Amount
+        //-             small.fs-1.ms-3 6000
+        //-         button.btn.bg-primary.text-white.m-2 Buy Now
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js' integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==' crossorigin='anonymous')
+
+    script(src='./js/cartPage.js')
